@@ -47,23 +47,23 @@ int main(){
 
 
 
-    // vector<int> arr;
-    // string input;
+    vector<int> arr;
+    string input;
     
-    // cout << "Enter your numbers seperated by white spaces and press enter: ";
-    // getline(cin, input);
+    cout << "Enter your numbers seperated by white spaces and press enter: ";
+    getline(cin, input);
 
-    // istringstream is(input);
-    // int num;
+    istringstream is(input);
+    int num;
 
-    // while(is >> num)
-    //     arr.push_back(num);
-
-    vector<int> arr = {5,10,15};
-
-
+    while(is >> num)
+        arr.push_back(num);
 
     
+
+
+
+    cout << "Sorted\t\t\t\tMedian"<<endl;
     int median;
     int size = arr.size();
     for(int i=1; i<=size;i++){
@@ -87,13 +87,17 @@ int main(){
 
     
     
-        cout << "Sorted: ";
-        for(int j=0; j<size;j++){
-            cout << num_list[j] << " ";
+        cout << "[ ";
+        for(int j=0; j<i;j++){
+            
+            cout << num_list[j]<< " ";
         }
+        cout << "]";
       
-      printf("Median %0.1f", (float) median);
+      printf("\t\t\t\t%0.1f", (float) median);
+      cout << endl;
 
     }
     return 0;
+
 }
