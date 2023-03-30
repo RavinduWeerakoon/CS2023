@@ -47,51 +47,53 @@ int main(){
 
 
 
-    vector<int> arr;
-    string input;
+    // vector<int> arr;
+    // string input;
     
-    cout << "Enter your numbers seperated by white spaces and press enter: ";
-    getline(cin, input);
+    // cout << "Enter your numbers seperated by white spaces and press enter: ";
+    // getline(cin, input);
 
-    istringstream is(input);
-    int num;
+    // istringstream is(input);
+    // int num;
 
-    while(is >> num)
-        arr.push_back(num);
+    // while(is >> num)
+    //     arr.push_back(num);
+
+    vector<int> arr = {5,10,15};
 
 
 
     
     int median;
     int size = arr.size();
+    for(int i=1; i<=size;i++){
+    
+      int num_list[i];
+
+      for(int j=0; j<i; j++){
+          num_list[j] = arr[j];
+      }
 
 
-    int num_list[size];
+      quickSort(num_list, 0, i-1);
 
+      if(size%2==1){
+          median =  num_list[i/2];
 
+  
+      }else{
+          median = (num_list[i/2] + num_list[i/2 -1])/2.0;
+      }
 
-    for(int i=0; i<size; i++){
-        num_list[i] = arr[i];
+    
+    
+        cout << "Sorted: ";
+        for(int j=0; j<size;j++){
+            cout << num_list[j] << " ";
+        }
+      
+      printf("Median %0.1f", (float) median);
+
     }
-
-    quickSort(num_list, 0, size-1);
-
-    if(size%2==1){
-        median =  num_list[size/2];
-
- 
-    }else{
-        median = (num_list[size/2] + num_list[size/2 -1])/2.0;
-    }
-
-    cout << "Sorted: ";
-    for(int i=0; i<size;i++){
-        cout << num_list[i] << " ";
-    }
-
-    cout << endl;
-
-    printf("Median %0.1f", (float) median);
-
     return 0;
 }
