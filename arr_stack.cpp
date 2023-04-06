@@ -70,9 +70,10 @@ int main() {
 
 
 
-        auto start = chrono::high_resolution_clock::now();
-    int arr[10];
-    Stack stk = Stack(10, arr);
+    auto start = chrono::high_resolution_clock::now();
+    int size = 10; //specifiy the size of the file
+    int arr[size];
+    Stack stk = Stack(size, arr);
 
     for(int i=0; i<5;i++){
         stk.push(rand()%100);
