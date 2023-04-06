@@ -1,19 +1,17 @@
-// C++ program to Implement a stack
-// using singly linked list
+
 #include <bits/stdc++.h>
 using namespace std;
-  
-// creating a linked list;
+
 class Node {
 public:
     int data;
-    Node* link;
+    Node* next;
     
-    // Constructor
+
     Node(int n)
     {
         this->data = n;
-        this->link = NULL;
+        this->next = NULL;
     }
 };
   
@@ -26,13 +24,10 @@ public:
     void push(int data)
     {
   
-        // Create new node temp and allocate memory in heap
+
         Node* temp = new Node(data);
-  
-        // Check if stack (heap) is full.
-        // Then inserting an element would
-        // lead to stack overflow
         if (!temp) {
+   
             cout << "\nStack Overflow";
             exit(1);
         }
@@ -41,7 +36,7 @@ public:
         temp->data = data;
   
 
-        temp->link = top;
+        temp->next = top;
 
         top = temp;
     }
@@ -53,15 +48,6 @@ public:
         return top == NULL;
     }
 
-    int peek()
-    {
-
-        if (!isEmpty())
-            return top->data;
-        else
-            exit(1);
-    }
-  
 
     void pop()
     {
@@ -77,7 +63,7 @@ public:
 
             temp = top;
   
-            top = top->link;
+            top = top->next;
 
             free(temp);
         }
@@ -100,9 +86,9 @@ public:
                 cout << temp->data;
   
               
-                temp = temp->link;
+                temp = temp->next;
                 if (temp != NULL)
-                    cout << " -> ";
+                    cout << " ";
             }
         }
     }
