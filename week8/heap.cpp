@@ -45,7 +45,6 @@ void heapSort(int arr[], int n)
       heapify(arr, n, i);
    }
 
-   displayArray(arr, n);
    
   
    
