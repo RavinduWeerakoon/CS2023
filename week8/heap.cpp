@@ -5,17 +5,17 @@ using namespace std;
 // function to heapify the tree
 void heapify(int arr[], int n, int root)
 {
-   int left = 2 * root +1;
-   int right = 2 * root +2;
+   int left_index = 2 * root +1;
+   int right_index = 2 * root +2;
 
    int largest = root;
 
-   if(left<n && arr[left]>arr[largest]){ 
-      largest = left;
+   if(left_index<n && arr[left_index]>arr[largest]){ 
+      largest = left_index;
       }
 
-   if(right<n && arr[right]>arr[largest]) {
-      largest = right;
+   if(right_index<n && arr[right_index]>arr[largest]) {
+      largest = right_index;
       }
 
    if(largest != root){
@@ -40,15 +40,16 @@ void displayArray(int arr[], int n)
 void heapSort(int arr[], int n)
 {
 
-   //create the heap
-   for(int i=n/2 -1; i>=0; i--){
-      heapify(arr, n, i);
+   //create the maxheap for the given array
+   
+   for(int j=n/2 -1; j>=0; j--){
+      heapify(arr, n, j);
    }
 
    
   
    
-      //select the maximum items iteratively and swap them to the end
+      //swp the items to the end
        for (int i = n - 1; i > 0; i--) {
  
    
@@ -66,18 +67,21 @@ int main()
 {
    
    
-   //create a vector to store the user inputs
+   //user inputs are stored in the vector
    vector<int> arr;
+   
+   
    string input;
     
     cout << "Enter your numbers seperated by white spaces and press enter: ";
     getline(cin, input);
    //conveting the numbers into a string stream
     istringstream is(input);
-    int num;
+    int number;
 
-    while(is >> num)
-        arr.push_back(num);
+    while(is >> number)
+        arr.push_back(number);
+   
    int n = arr.size();
 
    int heap_arr[n];
