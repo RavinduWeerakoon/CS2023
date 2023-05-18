@@ -27,7 +27,8 @@ struct Graph{
     void addedge(int u, int v){
         //select node u and push v into u's neighbour
         nodes[u-1].neighbours.push_back(v);
-
+        //select node v and push u into v's neighbour
+        nodes[v-1].neighbours.push_back(u);
     }
 
     void print(){
